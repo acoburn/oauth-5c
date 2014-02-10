@@ -3,7 +3,6 @@ require 'multi_json'
 
 module OmniAuth
   module Strategies
-
     class FiveColleges < OmniAuth::Strategies::OAuth
       
       option :name, 'fivecolleges'
@@ -21,9 +20,10 @@ module OmniAuth
       
       info do 
         {
-          :email => user_info['email'],
-          :name => user_info['fullname'],
+          :email => user_info['emails'][0],
+          :name => user_info['displayName'],
           :id => user_info['id'],
+          :provider => "fivecolleges"
         }
       end
       
@@ -44,7 +44,7 @@ module OmniAuth
       # Provide the "Person" portion of the raw_info
       
       def user_info
-        @user_info ||= raw_info.nil? ? {} : raw_info["user"]
+        @user_info ||= raw_info.nil? ? {} : raw_info
       end
       
       def request_phase

@@ -40,8 +40,8 @@ module OmniAuth
       # Return info gathered from the flickr.people.getInfo API call 
      
       def raw_info
+        logger.warn("Getting user profile")
         @raw_info ||= MultiJson.decode(access_token.get('/oauth/user_profile').body)
-        logger.warn raw_info
       rescue ::Errno::ETIMEDOUT
         raise ::Timeout::Error
       end
@@ -49,7 +49,8 @@ module OmniAuth
       # Provide the "Person" portion of the raw_info
       
       def user_info
-        logger.warn raw_info
+        logger.warn('Getting raw info')
+        logger.warn(raw_info)
         @user_info ||= raw_info.nil? ? {} : raw_info
       end
       

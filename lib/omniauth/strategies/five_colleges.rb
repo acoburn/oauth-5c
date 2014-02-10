@@ -1,5 +1,9 @@
 require 'omniauth-oauth'
 require 'multi_json'
+require 'logger'
+
+logger = Logger.new(STDOUT)
+logger.level = Logger::WARN
 
 module OmniAuth
   module Strategies
@@ -37,6 +41,7 @@ module OmniAuth
      
       def raw_info
         @raw_info ||= MultiJson.decode(access_token.get('/oauth/user_profile').body)
+        logger.warn raw_info
       rescue ::Errno::ETIMEDOUT
         raise ::Timeout::Error
       end
@@ -44,6 +49,7 @@ module OmniAuth
       # Provide the "Person" portion of the raw_info
       
       def user_info
+        logger.warn raw_info
         @user_info ||= raw_info.nil? ? {} : raw_info
       end
       

@@ -1,2 +1,2 @@
 require "omniauth-fivecolleges/version"
-require 'omniauth/strategies/fivecolleges'
+require 'omniauth/strategies/five_colleges'

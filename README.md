@@ -1,7 +1,8 @@
 OmniAuth FiveColleges
 =====================
 
-This gem contains the FiveColleges strategy for OmniAuth.
+This gem contains the (OAuth-based) FiveColleges strategy for OmniAuth.
+
 
 How To Use It
 -------------
@@ -35,7 +36,7 @@ You may also wish to adjust the `config/locales/devise.en.yml` like so:
 
 
 User Model
-==========
+----------
 
 In order to integrate this into your user model, you may need to adjust your `app/models/user.rb` file,
 including these lines:
@@ -51,8 +52,9 @@ including these lines:
         end
     end
 
+
 User Controller
-===============
+---------------
 
 The user controller (`app/controllers/users/omniauth_callbacks_controller.rb`) also needs to be informed
 of the omniauth configuration. For example:

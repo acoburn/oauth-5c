@@ -12,7 +12,7 @@ If you are using rails, you need to add the gem to your `Gemfile`:
 
 You can pull them in directly from github e.g.:
 
-    gem "omniauth-fivecolleges", :git => "git://github.com/acoburn/omniauth-fivecolleges.git"
+    gem "omniauth-fivecolleges", :git => "git://github.com/acoburn/oauth-5c.git"
 
 Once these are in, you need to add the following to your `config/initializers/omniauth.rb`:
 
@@ -20,10 +20,10 @@ Once these are in, you need to add the following to your `config/initializers/om
     	provider :fivecolleges, 'consumer_key', 'consumer_secret'
     end
 
-User the name of the class as provider(fivecolleges).
+Use the name of the class as provider(fivecolleges).
 
 
-You will obviously have to put in your key and secret, which you can get by asking Aaron Coburn
+You will then need to your own key and secret.
 
 
 After you have the gem running and the configuration is done, you can get to the follow url to log the user in:
@@ -35,5 +35,5 @@ Now just follow the README at: https://github.com/intridea/omniauth
 Questions
 ---------
 
-For any question, fell free to send me a tweet [@arthurnn](http://twitter.com/aarondcoburn)
+For any question, fell free to send me a tweet [@aarondcoburn](http://twitter.com/aarondcoburn)
 
